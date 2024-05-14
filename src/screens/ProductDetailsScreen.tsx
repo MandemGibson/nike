@@ -18,6 +18,7 @@ const ProductDetailsScreen = () => {
   const addToCart = ()=>{
     console.warn("Add to cart")
   }
+
   return (
     <View>
       <ScrollView>
@@ -42,7 +43,7 @@ const ProductDetailsScreen = () => {
       </ScrollView>
 
       <Pressable onPress={addToCart} style={styles.button}>
-        <Text style={styles.buttonText}>Add to Cart</Text>
+        <Text style={styles.buttonText}>Add to cart</Text>
       </Pressable>
     </View>
   );
@@ -57,6 +58,7 @@ const styles = StyleSheet.create({
   price: {
     fontWeight: "500",
     fontSize: 16,
+    letterSpacing: 1.5
   },
   description: {
     marginVertical: 10,
