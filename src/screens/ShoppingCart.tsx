@@ -4,40 +4,38 @@ import cart from "../data/cart";
 import CartItemList from "../components/CartListItem";
 
 const ShoppingCart = () => {
+  const ShoppingCartTotals = () => {
+    return (
+      <View style={styles.totalsContainer}>
+        <View style={styles.row}>
+          <Text style={styles.text}>Subtotal</Text>
+          <Text style={styles.text}>410,000 US$</Text>
+        </View>
+        <View style={styles.row}>
+          <Text style={styles.text}>Delivery</Text>
+          <Text style={styles.text}>10,000 US$</Text>
+        </View>
+        <View style={styles.row}>
+          <Text style={styles.textBold}>Total</Text>
+          <Text style={styles.textBold}>420,000 US$</Text>
+        </View>
+      </View>
+    );
+  };
 
-    const ShoppingCartTotals = () =>{
-        return (
-            <View style={styles.totalsContainer}>
-              <View style={styles.row}>
-                <Text style={styles.text}>Subtotal</Text>
-                <Text style={styles.text}>410,000 US$</Text>
-              </View>
-              <View style={styles.row}>
-                <Text style={styles.text}>Delivery</Text>
-                <Text style={styles.text}>10,000 US$</Text>
-              </View>
-              <View style={styles.row}>
-                <Text style={styles.textBold}>Total</Text>
-                <Text style={styles.textBold}>420,000 US$</Text>
-              </View>
-            </View>
-          );
-    }
   return (
     <>
-    <FlatList
-      data={cart}
-      renderItem={({ item }) => <CartItemList cartItem={item} />}
-      ListFooterComponent={ShoppingCartTotals}
-    />
-    <Pressable style={styles.button}>
+      <FlatList
+        data={cart}
+        renderItem={({ item }) => <CartItemList cartItem={item} />}
+        ListFooterComponent={ShoppingCartTotals}
+      />
+      <Pressable style={styles.button}>
         <Text style={styles.buttonText}>Checkout</Text>
-    </Pressable>
+      </Pressable>
     </>
   );
 };
-
-export default ShoppingCart;
 
 const styles = StyleSheet.create({
   totalsContainer: {
@@ -75,3 +73,5 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
 });
+
+export default ShoppingCart;
